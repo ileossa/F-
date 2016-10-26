@@ -1,0 +1,56 @@
+let unitPrime = 20
+let items = 5
+let total = unitPrime * items
+printfn "total = %d" total
+
+let f = fun x -> x * 2
+let t = f 4
+printfn "%d" t
+
+let f2 = fun n ->
+    match n with
+    | 20 -> -20
+    | 30 -> 5
+    | _ -> n
+printfn "%d" (f2 10)
+
+let abs = fun n ->
+    match n with
+    | titi when titi < 0 -> -titi
+    | _ -> n
+printfn "%d" (abs 5)
+
+let rec sumFirstNumbers = fun n -> match n with
+    | x when x < 1 -> 0
+    | x -> x + sumFirstNumbers(n-1)
+printfn "%d" (sumFirstNumbers 3)
+
+
+let rec exo = fun n -> match n with
+    | x when x > 10 -> "finish"
+    | x when (x % 5) = 0 -> 
+        printfn "%d %s" x "est un multiple de 5"
+        exo(n+1)
+    | x when (x % 5) <> 0 -> 
+        printfn "%d %s" x "n'est pas un multiple de 5"
+        exo(n+1)
+    | _ -> "error"
+printfn "exo = %s" (exo 0)
+
+
+let fizzBuzz  = fun n -> match n with
+    | x when x % 5 = 0 && x % 3 = 0 -> printfn "FizzBuzz"
+    | x when x % 5 = 0 -> printfn "Buzz"
+    | x when x % 3 = 0 -> printfn "Fizz"
+    | _ -> printfn "%d" n
+    
+fizzBuzz 1
+fizzBuzz 3
+fizzBuzz 5
+fizzBuzz 15
+
+let fizzBuzzRec = fun () ->
+    let rec fb = fun n -> match n with 
+        | x when x <= 100 ->
+            fizzBuzzRec (n+1)
+        | 
